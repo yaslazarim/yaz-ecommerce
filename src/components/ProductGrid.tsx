@@ -12,42 +12,42 @@ const products: Product[] = [
     id: 1,
     image: bag1,
     name: "Bolsa Rosa Delicada",
-    description: "Bolsa de crochê feita à mão em tons suaves de rosa e creme",
+    description: "Bolsa de crochê feita à mão com fios de alta qualidade, em tons suaves de rosa e creme. Possui acabamento delicado, detalhes finos e alça confortável, perfeita para complementar looks românticos e elegantes em qualquer ocasião.",
     price: "R$ 150,00",
   },
   {
     id: 2,
     image: bag2,
     name: "Bolsa Coral Verão",
-    description: "Perfeita para os dias quentes, em tons coral vibrante",
+    description: "PBolsa artesanal em tons vibrantes de coral, ideal para os dias quentes. Com textura exclusiva de crochê e acabamento resistente, combina praticidade e estilo, sendo perfeita para passeios, praias ou encontros descontraídos com um toque de cor.",
     price: "R$ 165,00",
   },
   {
     id: 3,
     image: bag3,
     name: "Bolsa Pêssego",
-    description: "Design artesanal com cores suaves e acabamento impecávelhsuahsuahsuahsuahsuahsuashuahsuahsuahsuahsuahsuahsuashu",
+    description: "Bolsa de crochê feita à mão, com design artesanal sofisticado e cores suaves que remetem à delicadeza do pêssego. Seu acabamento impecável e detalhes bem trabalhados tornam-na perfeita para complementar looks casuais e elegantes.",
     price: "R$ 180,00",
   },
   {
     id: 4,
     image: bag4,
     name: "Bolsa Mini Pink",
-    description: "Compacta e charmosa, ideal para passeios",
+    description: "Bolsa compacta e charmosa, ideal para passeios ou eventos sociais. Produzida em crochê artesanal com fio resistente, possui alça prática e acabamento detalhado, sendo perfeita para quem busca estilo e praticidade em uma peça pequena e elegante.",
     price: "R$ 120,00",
   },
   {
     id: 5,
     image: bag5,
     name: "Bolsa Bucket Rose",
-    description: "Estilo bucket bag com toque artesanal único",
+    description: "Estilo bucket bag com toque artesanal único, feita à mão em crochê com detalhes sofisticados. Espaçosa o suficiente para itens essenciais do dia a dia, combina modernidade e tradição artesanal, destacando-se em qualquer look casual ou elegante.",
     price: "R$ 175,00",
   },
   {
     id: 6,
     image: bag6,
     name: "Bolsa Grande Pêssego",
-    description: "Espaçosa e elegante para o dia a dia",
+    description: "Bolsa grande, elegante e espaçosa, ideal para o uso diário. Produzida em crochê artesanal com acabamento refinado, oferece praticidade sem perder o estilo, sendo perfeita para transportar objetos com segurança e sofisticação.",
     price: "R$ 195,00",
   },
 ];
@@ -58,6 +58,10 @@ export type Product = {
   name: string,
   description: string,
   price: string,
+}
+
+export function getProducts(id:string) {
+  return products.find(product => product.id === parseInt(id) || null);
 }
 
 
