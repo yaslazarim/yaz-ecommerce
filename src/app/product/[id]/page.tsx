@@ -32,16 +32,19 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <div>
                     <div className="flex flex-col md:text-left gap-1 md:gap-2 md:w-full px-2">
                         <h1 className="text-3xl lg:text-4xl font-bold text-[rgb(57,43,82)] mb-2">{product.name}</h1>
-                        <p className="text-[#392B52]">{product.shortDescription}</p>
+                        <p className="text-[#392B52] italic font-light">{product.shortDescription}</p>
                         <span className="text-4xl font-bold text-[#fd0a54] mt-6 mb-4">{product.price}</span>
                     </div>
 
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center mt-10 gap-2">
                         <span className="text-[#392B52] text-sm">Quantidade:</span>
                         <ProductQuantity />
                     </div>
+                    <div className="mt-5 mb-6">
+                        <p className="text-[#392B52] text-xs">Artesanal e sob encomenda: sem estoque disponível. <br/> Prazo de produção: 10 a 20 dias.</p>
+                    </div>
 
-                    <div className="mt-6">
+                    <div className="mt-12">
                         <button className="bg-[#fd0a54] rounded-[10px] text-[14px] font-semibold px-24 py-2.5 text-amber-50 cursor-pointer">
                             <i className="text-amber-50 text-[14px] pr-8 fa-solid fa-cart-shopping"></i>
                             Adicionar ao Carrinho</button>
