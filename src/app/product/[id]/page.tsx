@@ -1,3 +1,4 @@
+import ProductQuantity from "@/components/ui/ProductQuantity";
 import { getProducts } from "@/components/ProductGrid";
 import Image from "next/image";
 
@@ -8,7 +9,9 @@ type ProductPageProps = {
     }>
 }
 
-export default async function ProdutoPage({ params }: ProductPageProps) {
+
+
+export default async function ProductPage({ params }: ProductPageProps) {
     const { id } = await params;
     const product = await getProducts(id);
 
@@ -33,11 +36,12 @@ export default async function ProdutoPage({ params }: ProductPageProps) {
                         <span className="text-4xl font-bold text-[#fd0a54] mt-6 mb-4">{product.price}</span>
                     </div>
 
-                    <div>
-                        <p className="text-[#392B52]">Quantidade</p>
+                    <div className="flex items-center gap-2">
+                        <span className="text-[#392B52] text-sm">Quantidade:</span>
+                        <ProductQuantity />
                     </div>
 
-                    <div>
+                    <div className="mt-6">
                         <button className="bg-[#fd0a54] rounded-[10px] text-[14px] font-semibold px-24 py-2.5 text-amber-50 cursor-pointer">
                             <i className="text-amber-50 text-[14px] pr-8 fa-solid fa-cart-shopping"></i>
                             Adicionar ao Carrinho</button>
