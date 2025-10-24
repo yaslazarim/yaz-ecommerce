@@ -1,4 +1,5 @@
 "use client";
+
 import { createContext, useState } from "react";
 
 interface Product {
@@ -9,7 +10,7 @@ interface Product {
 }
 
 // Diz o que o carrinho pode fazer
-interface CartContextType {
+export interface CartContextType {
     cartItems: Product[];
     addToCart: (product: Product) => void;
     removeFromCart: (id: number) => void;
@@ -22,7 +23,7 @@ interface CartProviderProps {
 }
 
 //Cria o contexto do carrinho queserá usado pelos componentes
-export const CartContext = createContext<CartContextType | null>(null);
+export const CartContext = createContext<CartContextType>({} as CartContextType);
 
 //Gerente do contexto do carrinho. Decide como os productos são adicionados, removidos e limpos do carrinho.
 export const CartProvider = ({ children }: CartProviderProps) => {
@@ -54,7 +55,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     }
     //Diz para o react que os componentes filhos podem acessar o contexto do carrinho
     return (
-        <CartContext.Provider value ={{ cartItems, addToCart, removeFromCart, clearCart}}>
+        <CartContext.Provider value ={{ cartItems, addToCart, removeFromCart, clearCart }}>
             {children}
         </CartContext.Provider>
     );

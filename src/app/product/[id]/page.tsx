@@ -55,7 +55,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <hr className="bg-[#cfc58c] h-[2px] m-5 border-none my-10 max-w-6xl mx-auto w-full" />
 
             <div className="flex flex-col max-w-6xl mx-auto itens-center md:items-start">
-                <div className="flex flex-col gap-2.5 md:gap-10 w-full px-2">
+                <div className="flex flex-col gap-2.5 md:gap-10 w-full">
                     <div>
                         <h3 className="text-2xl font-bold text-[rgb(57,43,82)] mb-2">Sobre o produto</h3>
                         <p className="text-[#392B52]">{product.description}</p>
