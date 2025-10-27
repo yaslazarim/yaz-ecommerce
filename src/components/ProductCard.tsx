@@ -42,7 +42,8 @@ export default function ProductCard({ product }: ProductCardProps) {
           id: product.id,
           name: product.name,
           price: product.price,
-          quantity: 1
+          quantity: 1,
+          image: product.image
         })} className="bg-[#fd0a54] text-white rounded-[14px] font-semibold h-10 px-4 py-2 cursor-pointer hover:bg-[#eb1253] transition-colors duration-300">
           Adicionar ao carrinho
         </button>

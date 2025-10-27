@@ -1,12 +1,14 @@
 "use client";
 
 import { createContext, useState } from "react";
+import { StaticImageData } from "next/image";
 
 interface Product {
     id: number;
     name: string;
     price: string;
     quantity: number;
+    image: StaticImageData;
 }
 
 // Diz o que o carrinho pode fazer
@@ -14,7 +16,6 @@ export interface CartContextType {
     cartItems: Product[];
     addToCart: (product: Product) => void;
     removeFromCart: (id: number) => void;
-    clearCart: () => void;
 }
 
 // Pacotes de propriedades (children = Header, Main, Footer) que vai envolver o contexto do carrinho. 
@@ -49,13 +50,9 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         // Cria uma nova lista sem o produto removido
         setCart(prev => prev.filter(item => item.id !== id))
     }
-
-    const clearCart = () =>{
-        setCart([]);
-    }
     //Diz para o react que os componentes filhos podem acessar o contexto do carrinho
     return (
-        <CartContext.Provider value ={{ cartItems, addToCart, removeFromCart, clearCart }}>
+        <CartContext.Provider value ={{ cartItems, addToCart, removeFromCart }}>
             {children}
         </CartContext.Provider>
     );
