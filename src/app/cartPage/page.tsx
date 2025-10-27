@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useContext } from "react";
 import { CartContext, CartContextType } from "@/context/CartContext";
+import ProductQuantity from "@/components/ui/ProductQuantity";
 
 export default function CartPage() {
     const { cartItems, removeFromCart } = useContext(CartContext) as CartContextType;
@@ -50,11 +51,9 @@ export default function CartPage() {
                                                 <i className="fa-solid fa-trash "></i>
                                             </button>
                                         </div>
-                                        <span className="text-xl font-bold text-[#fd0a54] mb-4">{item.price}</span>
-                                        <div className="flex items-center gap-3">
-                                            <button><i className="fa-solid fa-minus"></i></button>
-                                            <span>1</span>
-                                            <button><i className="fa-solid fa-plus"></i></button>
+                                        <span className="text-xl font-bold text-[#fd0a54]">{item.price}</span>
+                                        <div className="flex items-center mt-3.5">
+                                            <ProductQuantity />
                                         </div>
                                     </div>
                                 </div>

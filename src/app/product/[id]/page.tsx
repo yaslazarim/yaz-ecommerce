@@ -1,6 +1,7 @@
 import ProductQuantity from "@/components/ui/ProductQuantity";
 import { getProducts } from "@/components/ProductGrid";
 import Image from "next/image";
+import AddToCartButton from "@/components/ui/AddToCartButton";
 
 
 type ProductPageProps = {
@@ -39,13 +40,17 @@ export default async function ProductPage({ params }: ProductPageProps) {
                         <ProductQuantity />
                     </div>
                     <div className="mt-5 mb-6">
-                        <p className="text-[#392B52] text-xs">Artesanal e sob encomenda: sem estoque disponível. <br/> Prazo de produção: 10 a 20 dias.</p>
+                        <p className="text-[#392B52] text-xs">Artesanal e sob encomenda: sem estoque disponível. <br /> Prazo de produção: 10 a 20 dias.</p>
                     </div>
 
                     <div className="mt-10">
-                        <button className="bg-[#fd0a54] rounded-[10px] text-[14px] font-semibold px-24 py-2.5 text-amber-50 cursor-pointer">
-                            <i className="text-amber-50 text-[14px] pr-8 fa-solid fa-cart-shopping"></i>
-                            Adicionar ao Carrinho</button>
+                        <AddToCartButton
+                            id={product.id}
+                            name={product.name}
+                            price={product.price}
+                            image={product.image}
+                            quantity={1}
+                        />
                     </div>
 
                 </div>
