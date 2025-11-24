@@ -16,6 +16,9 @@ export interface CartContextType {
     cartItems: Product[];
     addToCart: (product: Product) => void;
     removeFromCart: (id: number) => void;
+    quantity: number;
+    increase: () => void;
+    decrease: () => void;
 }
 
 // Pacotes de propriedades (children = Header, Main, Footer) que vai envolver o contexto do carrinho. 
@@ -30,6 +33,10 @@ export const CartContext = createContext<CartContextType>({} as CartContextType)
 export const CartProvider = ({ children }: CartProviderProps) => {
     // Estado do carrinho
     const [cartItems, setCart] = useState<Product[]>([]);
+    const [quantity, setQuantity] = useState(1);
+    const increase = () => setQuantity(q => q + 1);
+    const decrease = () => setQuantity(q => (q > 1 ? q - 1 : q));
+
 
     const addToCart = (product: Product) =>{
         // Verifica se o produto já está no carrinho
@@ -52,10 +59,9 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     }
     //Diz para o react que os componentes filhos podem acessar o contexto do carrinho
     return (
-        <CartContext.Provider value ={{ cartItems, addToCart, removeFromCart }}>
+        <CartContext.Provider value ={{ cartItems, addToCart, removeFromCart , quantity, increase, decrease }}>
             {children}
         </CartContext.Provider>
     );
-    ;
 }
 

@@ -13,6 +13,8 @@ type ProductPageProps = {
 export default async function ProductPage({ params }: ProductPageProps) {
     const { id } = await params;
     const product = await getProducts(id);
+    
+
 
     if (!product) {
         return <div>Produto não encontrado</div>
@@ -37,7 +39,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
                     <div className="flex items-center mt-6 gap-2">
                         <span className="text-[#392B52] text-sm">Quantidade:</span>
-                        <ProductQuantity />
+                        <ProductQuantity  />
                     </div>
                     <div className="mt-5 mb-6">
                         <p className="text-[#392B52] text-xs">Artesanal e sob encomenda: sem estoque disponível. <br /> Prazo de produção: 10 a 20 dias.</p>
@@ -49,7 +51,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
                             name={product.name}
                             price={product.price}
                             image={product.image}
-                            quantity={1}
                         />
                     </div>
 

@@ -1,13 +1,11 @@
 "use client";
-import { useState } from "react";
+import { CartContext, CartContextType } from "@/context/CartContext";
+import { useContext } from "react";
 
 
 export default function ProductQuantity() {
-    const [quantity, setQuantity] = useState(1);
 
-    const increase = () => setQuantity(q => q + 1);
-    const decrease = () => setQuantity(q => (q > 1 ? q - 1 : q));
-
+    const {quantity, increase, decrease} = useContext<CartContextType>(CartContext)
     return (
 
         <div className="flex items-center border rounded-md border-gray-300 overflow-hidden">
