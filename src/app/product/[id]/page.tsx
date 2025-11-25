@@ -39,7 +39,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
                     <div className="flex items-center mt-6 gap-2">
                         <span className="text-[#392B52] text-sm">Quantidade:</span>
-                        <ProductQuantity productPageId={id} />
+                        <ProductQuantity />
                     </div>
                     <div className="mt-5 mb-6">
                         <p className="text-[#392B52] text-xs">Artesanal e sob encomenda: sem estoque disponível. <br /> Prazo de produção: 10 a 20 dias.</p>
