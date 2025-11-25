@@ -2,6 +2,8 @@ import ProductQuantity from "@/components/ui/ProductQuantity";
 import { getProducts } from "@/components/ProductGrid";
 import Image from "next/image";
 import AddToCartButton from "@/components/ui/AddToCartButton";
+import { formatPrice } from "@/utils";
+import { GetServerSideProps } from 'next';
 
 
 type ProductPageProps = {
@@ -13,8 +15,6 @@ type ProductPageProps = {
 export default async function ProductPage({ params }: ProductPageProps) {
     const { id } = await params;
     const product = await getProducts(id);
-    
-
 
     if (!product) {
         return <div>Produto não encontrado</div>
@@ -34,12 +34,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     <div className="flex flex-col md:text-left gap-1 md:gap-2 md:w-full border-b border-b-[#cfc58c]">
                         <h1 className="text-3xl lg:text-4xl font-bold text-[rgb(57,43,82)] mb-2">{product.name}</h1>
                         <p className="text-[#392B52] italic font-light">{product.shortDescription}</p>
-                        <span className="text-4xl font-bold text-[#fd0a54] mt-6 mb-6">{product.price}</span>
+                        <span className="text-4xl font-bold text-[#fd0a54] mt-6 mb-6">{formatPrice(product.price)}</span>
                     </div>
 
                     <div className="flex items-center mt-6 gap-2">
                         <span className="text-[#392B52] text-sm">Quantidade:</span>
-                        <ProductQuantity  />
+                        <ProductQuantity productPageId={id} />
                     </div>
                     <div className="mt-5 mb-6">
                         <p className="text-[#392B52] text-xs">Artesanal e sob encomenda: sem estoque disponível. <br /> Prazo de produção: 10 a 20 dias.</p>

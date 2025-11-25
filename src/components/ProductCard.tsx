@@ -5,6 +5,7 @@ import { Product } from "./ProductGrid";
 import { useContext } from "react";
 import { CartContext } from "@/context/CartContext";
 import Link from "next/link";
+import { formatPrice } from "@/utils";
 
 type ProductCardProps = {
   product: Product;
@@ -37,7 +38,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       </Link>
 
       <div className="flex items-center justify-between p-3">
-        <span className="text-[#fd0a54] text-xl font-bold">{product.price}</span>
+        <span className="text-[#fd0a54] text-xl font-bold">{formatPrice(product.price)}</span>
         <button onClick={() => addToCart({
           id: product.id,
           name: product.name,

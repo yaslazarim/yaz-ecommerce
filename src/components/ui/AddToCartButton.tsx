@@ -6,7 +6,7 @@ import { StaticImageData } from "next/image";
 interface AddToCartProps {
     id: number;
     name: string;
-    price: string;
+    price: number;
     image: StaticImageData;
 }
 
@@ -16,10 +16,11 @@ export default function AddToCartButton({
     price,
     image
 }: AddToCartProps) {
-    const { addToCart, quantity } = useContext(CartContext) as CartContextType;
+    const { addToCart, productPageQuantity, resetProductPageQuantity } = useContext(CartContext) as CartContextType;
 
     const handleAddToCart = () => {
-        addToCart({ id, name, price, quantity, image });
+        addToCart({ id, name, price, quantity: productPageQuantity, image });
+        resetProductPageQuantity()
     }
 
     return (
