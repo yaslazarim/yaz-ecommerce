@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext, CartContextType } from "@/context/CartContext";
 import ProductQuantity from "@/components/ui/ProductQuantity";
 import { formatPrice } from "@/utils";
+import { handleWhatsappMessage } from "@/utils/WhatsappCheckout";
 
 export default function CartPage() {
     const { cartItems, removeFromCart } = useContext(CartContext) as CartContextType;
@@ -97,7 +98,7 @@ export default function CartPage() {
                         </div>
 
                         <div className="flex flex-col items-center gap-2 w-full mt-4">
-                            <button className="bg-[#fd0a54] rounded-[10px] text-[14px] w-full py-2.5 text-amber-50 cursor-pointer">Finalizar compra</button>
+                            <button onClick={() => handleWhatsappMessage(cartItems, totalPrice)} className="bg-[#fd0a54] rounded-[10px] text-[14px] w-full py-2.5 text-amber-50 cursor-pointer">Finalizar compra</button>
                             <Link href="/" className="w-full">
                                 <button className="bg-[#f5ecb7] rounded-[10px] text-[14px] text-black w-full py-2.5 cursor-pointer">Continuar comprando</button>
                             </Link>
