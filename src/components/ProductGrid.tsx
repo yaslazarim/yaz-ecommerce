@@ -24,7 +24,7 @@ const products: Product[] = [
     dimensions: "35cm x 28cm x 12cm",
     weight: "800g",
     color: "Rosa e Creme",
-    price: "R$ 150,00",
+    price: 150,
   },
   {
     id: 2,
@@ -43,7 +43,7 @@ const products: Product[] = [
     dimensions: "35cm x 28cm x 12cm",
     weight: "800g",
     color: "Coral e Branco",
-    price: "R$ 165,00",
+    price: 165,
   },
   {
     id: 3,
@@ -62,7 +62,7 @@ const products: Product[] = [
     dimensions: "35cm x 28cm x 12cm",
     weight: "800g",
     color: "Salmão e Creme",
-    price: "R$ 180,00",
+    price: 180,
   },
   {
     id: 4,
@@ -81,7 +81,7 @@ const products: Product[] = [
     dimensions: "30cm x 20cm x 10cm",
     weight: "600g",
     color: "Rosa Pink",
-    price: "R$ 120,00",
+    price: 120,
   },
   {
     id: 5,
@@ -100,7 +100,7 @@ const products: Product[] = [
     dimensions: "32cm x 25cm x 15cm",
     weight: "700g",
     color: "Rosa e Creme",
-    price: "R$ 175,00",
+    price: 175,
   },
   {
     id: 6,
@@ -119,7 +119,7 @@ const products: Product[] = [
     dimensions: "40cm x 30cm x 15cm",
     weight: "900g",
     color: "Pêssego e Creme",
-    price: "R$ 195,00",
+    price: 195,
   },
 ];
 
@@ -135,10 +135,10 @@ export type Product = {
   dimensions: string,
   weight: string,
   color: string,
-  price: string,
+  price: number,
 }
 
-export async function getProducts(id:string) {
+export async function getProducts(id: string) {
   return products.find(product => product.id === parseInt(id) || null);
 }
 

@@ -1,12 +1,22 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext, CartContextType } from "@/context/CartContext";
 import ProductQuantity from "@/components/ui/ProductQuantity";
+import { formatPrice } from "@/utils";
 
 export default function CartPage() {
     const { cartItems, removeFromCart } = useContext(CartContext) as CartContextType;
+    const [totalItems, setTotalItems] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
+
+    useEffect(() => {
+        const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+        setTotalItems(itemCount);
+        const totalPrice = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0)
+        setTotalPrice(totalPrice)
+    }, [cartItems, totalPrice]);
 
     if (cartItems.length === 0) {
         return (
@@ -51,9 +61,11 @@ export default function CartPage() {
                                                 <i className="fa-solid fa-trash "></i>
                                             </button>
                                         </div>
-                                        <span className="text-xl font-bold text-[#fd0a54]">{item.price}</span>
+                                        <span className="text-xl font-bold text-[#fd0a54]">{formatPrice(item.price)}</span>
                                         <div className="flex items-center mt-3.5">
-                                            <ProductQuantity />
+                                            <ProductQuantity item={
+                                                { ...item, quantity: 1 }
+                                            } />
                                         </div>
                                     </div>
                                 </div>
@@ -62,13 +74,9 @@ export default function CartPage() {
                     </div>
                     <div className="rounded-lg border border-[#F0DBC2] bg-amber-50 text-card-foreground shadow-sm p-6 w-full md:w-1/3 md:sticky top-24">
                         <h2 className="text-2xl font-bold mb-6 text-[rgb(57,43,82)]">Resumo do Pedido</h2>
-                        <div className="flex justify-between text-[rgb(57,43,82)] border-b border-b-[#F0DBC2] pb-4 mb-4">
-                            <span className="text-[rgb(57,43,82)]">Subtotal ({cartItems.length} itens)</span>
-                            <span className="text-[rgb(57,43,82)]">R$600,00</span>
-                        </div>
                         <div className="flex justify-between text-lg font-bold mb-6">
-                            <p className="text-[rgb(57,43,82)]">Total</p>
-                            <span className="text-[#fd0a54]">R$600</span>
+                            <p className="text-[rgb(57,43,82)]">Total ({totalItems} itens)</p>
+                            <span className="text-[#fd0a54]">{formatPrice(totalPrice)}</span>
                         </div>
 
                         <div className="bg-[#FECF95] bg-opacity-50 border border-[#F0DBC2] rounded-lg p-4 mb-4">
