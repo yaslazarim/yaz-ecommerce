@@ -6,6 +6,7 @@ import { CartContext, CartContextType } from "@/context/CartContext";
 import ProductQuantity from "@/components/ui/ProductQuantity";
 import { formatPrice } from "@/utils";
 import { handleWhatsappMessage } from "@/utils/WhatsappCheckout";
+import { Trash } from "lucide-react";
 
 export default function CartPage() {
     const { cartItems, removeFromCart } = useContext(CartContext) as CartContextType;
@@ -59,7 +60,7 @@ export default function CartPage() {
                                             <button
                                                 onClick={() => removeFromCart(item.id)}
                                                 className="inline-flex items-center justify-center text-[#fd0a54] gap-2 whitespace-nowrap rounded-md text-sm font-medium cursor-pointer">
-                                                <i className="fa-solid fa-trash "></i>
+                                                <Trash className="h-4 w-4" />
                                             </button>
                                         </div>
                                         <span className="text-xl font-bold text-[#fd0a54]">{formatPrice(item.price)}</span>

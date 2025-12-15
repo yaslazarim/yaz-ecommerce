@@ -3,6 +3,7 @@
 import { CartContext, CartContextType } from "@/context/CartContext";
 import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
+import { ShoppingCart, User } from "lucide-react";
 
 export default function Header() {
   const { cartItems } = useContext<CartContextType>(CartContext);
@@ -23,16 +24,18 @@ export default function Header() {
           <h1 className="text-3xl text-[#fd0a54] font-bold cursor-pointer">YAZ</h1>
         </Link>
       </div>
-      <div className="flex gap-3">
+      <div className="flex gap-3 items-center">
         <Link href="/cartPage">
           <button className="mx-2 flex items-center cursor-pointer">
-            <i className="text-[#23192d] text-[14px] fa-solid fa-cart-shopping">{totalItems}</i>
+            <ShoppingCart className="text-[#23192d] h-5 w-5 m-2"/>{totalItems}
           </button>
         </Link>
 
+      <Link href="/admin">
         <button className="mx-2 flex items-center cursor-pointer">
-          <i className="text-[#23192d] text-[14px] fa-solid fa-user"></i>
+          <User className="text-[#23192d] h-5 w-5"></User>
         </button>
+      </Link>
       </div>
     </header>
   );
