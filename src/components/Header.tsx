@@ -24,18 +24,23 @@ export default function Header() {
           <h1 className="text-3xl text-brand font-bold cursor-pointer">YAZ</h1>
         </Link>
       </div>
-      <div className="flex gap-3 items-center">
+      <div className="flex gap-1 items-center">
         <Link href="/cartPage">
-          <button className="mx-2 flex items-center cursor-pointer">
-            <ShoppingCart className="text-main h-5 w-5 m-2"/>{totalItems}
+          <button className="group relative mx-1 flex items-center cursor-pointer hover:bg-accent transition-colors duration-300 p-1 rounded">
+            <ShoppingCart className="h-4 w-4 m-2 text-main group-hover:text-white" />
+            {totalItems > 0 && (
+              <span className="absolute -top-1 -right-1 bg-accent text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                {totalItems}
+              </span>
+            )}
           </button>
         </Link>
 
-      <Link href="/admin">
-        <button className="mx-2 flex items-center cursor-pointer">
-          <User className="text-main h-5 w-5"></User>
-        </button>
-      </Link>
+        <Link href="/admin">
+          <button className="group mx-1 flex items-center cursor-pointer hover:bg-accent transition-colors duration-300 p-1 rounded">
+            <User className="text-main h-4 w-4 m-2 group-hover:text-white"></User>
+          </button>
+        </Link>
       </div>
     </header>
   );
