@@ -15,7 +15,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useContext(CartContext)
 
   return (
-    <div className="bg-white w-[360px] h-[520px] rounded-2xl cursor-pointer">
+    <div className="bg-surface w-[360px] h-[520px] border border-default shadow-sm rounded-2xl cursor-pointer">
       <Link href={`/product/${product.id}`}>
         <div className="overflow-hidden rounded-t-2xl">
           <Image
@@ -26,10 +26,10 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
         <div className="p-3 flex flex-col gap-4">
           <div className="flex flex-col gap-[4px]">
-            <h3 className="text-[#392B52] font-bold text-[20px] cursor-pointer">
+            <h3 className="text-main font-bold text-[20px] cursor-pointer">
               {product.name}
             </h3>
-            <p className="text-[#392B52] text-[14px] h-10 overflow-hidden text-ellipsis line-clamp-2">
+            <p className="text-muted text-[14px] h-10 overflow-hidden text-ellipsis line-clamp-2">
               {product.shortDescription}
             </p>
 
@@ -38,14 +38,14 @@ export default function ProductCard({ product }: ProductCardProps) {
       </Link>
 
       <div className="flex items-center justify-between p-3">
-        <span className="text-[#fd0a54] text-xl font-bold">{formatPrice(product.price)}</span>
+        <span className="text-brand text-xl font-bold">{formatPrice(product.price)}</span>
         <button onClick={() => addToCart({
           id: product.id,
           name: product.name,
           price: product.price,
           quantity: 1,
           image: product.image
-        })} className="bg-[#fd0a54] text-white rounded-[14px] font-semibold h-10 px-4 py-2 cursor-pointer hover:bg-[#eb1253] transition-colors duration-300">
+        })} className="bg-brand text-white rounded-[14px] font-semibold h-10 px-4 py-2 cursor-pointer hover:bg-accent transition-colors duration-300">
           Adicionar ao carrinho
         </button>
       </div>

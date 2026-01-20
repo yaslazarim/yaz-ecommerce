@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+@theme {
+  --color-app: #FAFAFA; /*Fundo geral*/
+  --color-surface: #FFFFFF; /*Fundo de cards e componentes*/
+  --color-main: #141414; /*Texto principal*/
+  --color-brand: #792020; /*Logo, preços, botões principais, badge carrinho*/
+  --color-muted: #666666; /*Texto secundário*/
+  --color-default: #E0DEDE; /*Bordas, linhas*/
+  --color-danger: #E05252; /*Exclui produtos e ações perigosas*/
+  --color-accent: #5C1414; /*Hover botões e links*/
+  --color-field: #EBEBEB;   /* fundo de inputs e campos */
+
+}

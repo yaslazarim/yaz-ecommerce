@@ -147,10 +147,10 @@ export default function ProductGrid() {
   return (
     <section className="py-12 w-[100%]">
       <div className="mb-8 text-center">
-        <h2 className="text-4xl font-bold text-[#23192d] mb-2">
+        <h2 className="text-4xl font-bold text-main mb-2">
           Nossa Coleção
         </h2>
-        <p className="text-[#392B52]">
+        <p className="text-muted">
           Bolsas artesanais feitas com amor e dedicação
         </p>
       </div>
