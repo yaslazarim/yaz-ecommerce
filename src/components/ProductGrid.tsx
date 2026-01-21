@@ -6,6 +6,8 @@ import bag3 from "../assets/bag-3.jpg";
 import bag4 from "../assets/bag-4.jpg";
 import bag5 from "../assets/bag-5.jpg";
 import bag6 from "../assets/bag-6.jpg";
+export { products };
+
 const products: Product[] = [
   {
     id: 1,
