@@ -5,7 +5,7 @@ import RegisteredProductItem from "@/components/ui/RegisteredProductItem";
 import { products } from "@/components/ProductGrid";
 import { useForm } from "react-hook-form";
 
-/*Define formato dos dados*/
+/*define formato dos dados*/
 type ProductFormData = {
   name: string;
   description: string;
@@ -24,7 +24,7 @@ export default function AdmPage() {
         reset 
     } = useForm<ProductFormData>();
 
-    /*Função chamada quando o formulário é enviado com sucesso*/
+    /*função chamada quando o formulário é enviado com sucesso*/
   function onSubmit(data: ProductFormData) {
     console.log("Produto cadastrado:", data);
 
@@ -139,7 +139,7 @@ export default function AdmPage() {
                 <div className="flex gap-4 items-center">
                     
                   <label
-                  /*Estiliza label para parecer um botão, ligado ao input pelo htmlFor="image*/
+                  /*estiliza label para parecer um botão, e é ligado ao input pelo htmlFor="image*/
                     htmlFor="image"
                     className="flex items-center gap-2 cursor-pointer bg-field rounded-md px-3 py-2 text-main hover:bg-[#efe29f] transition w-fit"
                   >
@@ -170,7 +170,6 @@ export default function AdmPage() {
             </div>
           </form>
 
-          {/* LISTA DE PRODUTOS */}
           <div className="flex-1 bg-surface rounded-lg border border-default shadow-sm flex flex-col max-h-[720px]">
 
             <div className="p-6 pb-2">
