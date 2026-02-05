@@ -1,5 +1,5 @@
 "use client";
-import { ArrowLeft, Plus, Trash } from "lucide-react";
+import { ArrowLeft, LogOut, Plus, Trash } from "lucide-react";
 import Link from "next/link";
 import RegisteredProductItem from "@/components/ui/RegisteredProductItem";
 import { products } from "@/components/ProductGrid";
@@ -40,6 +40,9 @@ export default function AdmPage() {
             <ArrowLeft className="h-5 w-5" />
           </Link>
           <p className="font-bold text-2xl">Painel Administrativo</p>
+          <div className="ml-auto">
+            <LogOut className="w-5 h-5 cursor-pointer" />
+          </div>
         </div>
       </header>
 
