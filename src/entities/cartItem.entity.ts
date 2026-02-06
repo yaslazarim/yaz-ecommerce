@@ -5,5 +5,5 @@ export interface CartItem {
     name: string;
     price: number;
     quantity: number;
-    image: StaticImageData;
+    image: string;
 }

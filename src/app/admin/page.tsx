@@ -2,7 +2,6 @@
 import { ArrowLeft, LogOut, Plus, Trash } from "lucide-react";
 import Link from "next/link";
 import RegisteredProductItem from "@/components/ui/RegisteredProductItem";
-import { products } from "@/components/ProductGrid";
 import { useForm } from "react-hook-form";
 import { ProductFormData } from "@/entities/product.entity";
 
@@ -168,12 +167,12 @@ export default function AdmPage() {
                     <div className="flex-1 bg-surface rounded-lg border border-default shadow-sm flex flex-col max-h-[720px]">
                         <div className="p-6 pb-2">
                             <span className="text-main font-semibold text-[20px]">
-                                Produtos Cadastrados ({products.length})
+                                Produtos Cadastrados ({20})
                             </span>
                         </div>
 
                         <div className="flex-1 overflow-y-auto px-6 pb-6 flex flex-col gap-3">
-                            {products.map((product) => (
+                            {[].map((product) => (
                                 <RegisteredProductItem
                                     key={product.id}
                                     product={product}

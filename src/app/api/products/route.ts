@@ -21,3 +21,11 @@ export async function POST(request: NextRequest) {
         });
     }
 }
+
+export async function GET() {
+    const repository = new ProductRepository();
+
+    const products = await repository.getProducts();
+
+    return NextResponse.json(products);
+}

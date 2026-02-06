@@ -23,4 +23,8 @@ export class ProductRepository {
             weight: product.weight,
         });
     }
+
+    async getProducts(){
+        return await this.database.select().from(productsTable)
+    }
 }

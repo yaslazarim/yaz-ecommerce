@@ -17,10 +17,12 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <div className="bg-surface w-[360px] h-[520px] border border-default shadow-sm rounded-2xl cursor-pointer">
       <Link href={`/product/${product.id}`}>
-        <div className="overflow-hidden rounded-t-2xl">
+        <div className="overflow-hidden rounded-t-2xl" suppressHydrationWarning>
           <Image
-            src={product.image}
+            src={product.imageLink}
             alt="Bolsa Crochê"
+            width={200}
+            height={200}
             className="transition-transform duration-300 ease-in-out hover:scale-110"
           />
         </div>
@@ -44,7 +46,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           name: product.name,
           price: product.price,
           quantity: 1,
-          image: product.image
+          image: product.imageLink
         })} className="bg-brand text-white rounded-[14px] font-semibold h-10 px-4 py-2 cursor-pointer hover:bg-accent transition-colors duration-300">
           Adicionar ao carrinho
         </button>
